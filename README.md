@@ -135,9 +135,9 @@ Contributions are welcome! Please fork the repo and submit a pull request with y
 
 ## 📧 Contact
 
-Created by **Abdul Moiz**  
-Email: [abdulmoiz8895@gmail.com](mailto:abdulmoiz8895@gmail.com)  
-GitHub: [AbdulMoiz2493](https://github.com/AbdulMoiz2493)
+- Created by **Abdul Moiz**  
+- Email: [abdulmoiz8895@gmail.com](mailto:abdulmoiz8895@gmail.com)  
+- GitHub: [AbdulMoiz2493](https://github.com/AbdulMoiz2493)
 
 ---
 
