@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: boardsync
+  namespace: boardsync-ns
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: boardsync
+  template:
+    metadata:
+      labels:
+        app: boardsync
+    spec:
+      containers:
+      - name: boardsync
+        image: abdulmoiz2493/boardsync:latest
+        ports:
+        - containerPort: 3000
+        - containerPort: 5173
+        env:
+        - name: MONGODB_URI
+          value: "mongodb://192.168.1.5:27017/boardsync1" # Replace with your host IP
+        - name: JWT_SECRET
+          value: "your-secret-key"
+        - name: CLIENT_URL
+          value: "http://localhost:5173"
+        - name: NODE_ENV
+          value: "development"
