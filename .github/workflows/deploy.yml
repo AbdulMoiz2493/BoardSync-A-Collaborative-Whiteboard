@@ -1,0 +1,26 @@
+name: Build and Deploy to Minikube
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-deploy:
+    runs-on: self-hosted
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Set up Docker to use Minikube's environment
+      run: |
+        echo "Configuring Docker to use Minikube's daemon..."
+        eval $(minikube docker-env)
+    - name: Build Docker image
+      run: |
+        docker build -t abdulmoiz2493/boardsync:latest .
+    - name: Login to Docker Hub
+      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+    - name: Push Docker image to Docker Hub
+      run: docker push abdulmoiz2493/boardsync:latest
+    - name: Deploy to Minikube
+      run: |
+        kubectl apply -f deployment.yaml
+        kubectl apply -f service.yaml
