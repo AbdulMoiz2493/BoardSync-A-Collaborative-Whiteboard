@@ -21,10 +21,12 @@ spec:
         - containerPort: 5173
         env:
         - name: MONGODB_URI
-          value: "mongodb://192.168.1.5:27017/boardsync1" # Replace with your host IP
+          value: "mongodb://mongodb-service:27017/boardsync1"
         - name: JWT_SECRET
           value: "your-secret-key"
         - name: CLIENT_URL
           value: "http://localhost:5173"
+        - name: VITE_BACKEND_URL
+          value: "http://localhost:3000"
         - name: NODE_ENV
           value: "development"

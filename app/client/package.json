@@ -12,6 +12,7 @@
   "dependencies": {
     "@excalidraw/excalidraw": "^0.17.3",
     "autoprefixer": "^10.4.17",
+    "dotenv": "^16.5.0",
     "lodash": "^4.17.21",
     "lucide-react": "^0.330.0",
     "postcss": "^8.4.35",

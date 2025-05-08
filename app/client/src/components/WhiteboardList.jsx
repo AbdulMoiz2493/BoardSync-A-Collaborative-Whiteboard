@@ -18,7 +18,7 @@ function WhiteboardList() {
   // Function to fetch user data
   const fetchUserData = async (userId) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/users/${userId}`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/${userId}`, {
         method: 'GET',
         credentials: 'include'
       });
@@ -77,7 +77,7 @@ function WhiteboardList() {
   const fetchWhiteboards = async () => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:3000/api/boards', {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/boards`, {
         method: 'GET',
         credentials: 'include'
       });
@@ -99,7 +99,7 @@ function WhiteboardList() {
     try {
       console.log('Fetching notifications...');
       
-      const response = await fetch('http://localhost:3000/api/notifications', {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/notifications`, {
         method: 'GET',
         credentials: 'include'
       });
@@ -155,7 +155,7 @@ function WhiteboardList() {
   
   const markNotificationAsRead = async (notificationId) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/notifications/${notificationId}`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/notifications/${notificationId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -205,7 +205,7 @@ function WhiteboardList() {
         userEmail // Including email for debugging
       });
       
-      const response = await fetch('http://localhost:3000/api/boards/invitations/respond', {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/boards/invitations/respond`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -240,7 +240,7 @@ function WhiteboardList() {
 
   const createNewBoard = async () => {
     try {
-      const response = await fetch('http://localhost:3000/api/boards', {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/boards`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -260,7 +260,7 @@ function WhiteboardList() {
 
   const toggleFavorite = async (boardId, isFavorite) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/boards/${boardId}/favorite`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/boards/${boardId}/favorite`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -280,7 +280,7 @@ function WhiteboardList() {
   const deleteWhiteboard = async (boardId) => {
     if (window.confirm("Are you sure you want to delete this whiteboard?")) {
       try {
-        const response = await fetch(`http://localhost:3000/api/boards/${boardId}`, {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/boards/${boardId}`, {
           method: 'DELETE',
           credentials: 'include'
         });
@@ -382,7 +382,7 @@ function WhiteboardList() {
                           const promises = notifications
                             .filter(notif => !notif.read)
                             .map(notif => 
-                              fetch(`http://localhost:3000/api/notifications/${notif.id}`, {
+                              fetch(`${import.meta.env.VITE_BACKEND_URL}/api/notifications/${notif.id}`, {
                                 method: 'PUT',
                                 headers: {
                                   'Content-Type': 'application/json',

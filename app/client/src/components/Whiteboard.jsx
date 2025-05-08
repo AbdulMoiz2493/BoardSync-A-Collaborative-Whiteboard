@@ -6,7 +6,7 @@ import { ArrowLeft, Star, Users, Share2, MoreHorizontal, XCircle, User } from 'l
 
 let socket;
 if (!socket) {
-  socket = io('http://localhost:3000', {
+  socket = io(`${import.meta.env.VITE_BACKEND_URL}`, {
     reconnectionAttempts: 5,
     reconnectionDelay: 1000,
     transports: ['websocket'],
@@ -135,7 +135,7 @@ function Whiteboard() {
 
   const fetchBoardDetails = async (boardId) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/boards/${boardId}`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/boards/${boardId}`, {
         method: 'GET',
         credentials: 'include'
       });
@@ -179,7 +179,7 @@ function Whiteboard() {
   
   const fetchCollaborators = async (boardId) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/boards/${boardId}/collaborators`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/boards/${boardId}/collaborators`, {
         method: 'GET',
         credentials: 'include'
       });
@@ -230,7 +230,7 @@ function Whiteboard() {
     if (!id) return;
     
     try {
-      const response = await fetch(`http://localhost:3000/api/boards/${id}/favorite`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/boards/${id}/favorite`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -251,7 +251,7 @@ function Whiteboard() {
     if (!id || !isOwner) return;
     
     try {
-      const response = await fetch(`http://localhost:3000/api/boards/${id}`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/boards/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -272,7 +272,7 @@ function Whiteboard() {
     if (!inviteEmail || !id) return;
     
     try {
-      const response = await fetch(`http://localhost:3000/api/boards/${id}/invite`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/boards/${id}/invite`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -295,7 +295,7 @@ function Whiteboard() {
   
   const updateCollaboratorAccess = async (collaboratorId, newAccessLevel) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/boards/${id}/collaborators/${collaboratorId}`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/boards/${id}/collaborators/${collaboratorId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -314,7 +314,7 @@ function Whiteboard() {
   
   const removeCollaborator = async (collaboratorId) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/boards/${id}/collaborators/${collaboratorId}`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/boards/${id}/collaborators/${collaboratorId}`, {
         method: 'DELETE',
         credentials: 'include'
       });
