@@ -74,6 +74,8 @@ BoardSync-A-Collaborative-Whiteboard/
 ├── Dockerfile                 # Docker configuration
 ├── deployment.yaml            # Kubernetes deployment
 ├── service.yaml               # Kubernetes service
+├── mongodb-deployment.yaml    # mongodb deployment
+├── mongodb-service.yaml       # mongodb service
 └── README.md
 ```
 
