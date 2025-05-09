@@ -176,6 +176,8 @@ eval $(minikube docker-env)
 ```bash
 kubectl apply -f deployment.yaml
 kubectl apply -f service.yaml
+kubectl apply -f mongodb-deployment.yaml
+kubectl apply -f mongodb-service.yaml
 ```
 
 Verify:
