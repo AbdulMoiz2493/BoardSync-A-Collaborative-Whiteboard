@@ -164,6 +164,7 @@ function WhiteboardList() {
         body: JSON.stringify({ status: 'read' })
       });
       
+      
       if (response.ok) {
         fetchNotifications();
       }

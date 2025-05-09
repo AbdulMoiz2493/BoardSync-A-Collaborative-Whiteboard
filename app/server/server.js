@@ -39,7 +39,7 @@ app.use('/api/boards', collaboratorRoutes);
 app.use('/api', notificationRoutes);
 
 // Start server
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
